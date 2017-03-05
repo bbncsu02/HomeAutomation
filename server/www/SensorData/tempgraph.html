@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="300">
+<title>Temperature Graph</title>
+<script src="includes/dygraph-combined.js"></script>
+</head>
+<body style="">
+<h1>Temperature graph</h1>
+<div id="graphdiv" style="height: 400px; width: 975px;"></div>
+<hr/>
+<form>
+<div style="overflow:auto;">
+<!--<div style="width:25%;float:left;">
+<div>
+<fieldset>
+	<legend>Timeframe</legend>
+	<select id="timeframe">
+		<option value="1">Last Day</option>
+		<option value="3">Last 3 Days</option>
+		<option value="7">Last Week</option>
+		<option value="14">Last 2 Weeks</option>
+		<option value="30">Last Month</option>
+	</select>
+</fieldset>
+</div></div>-->
+<div style="width:33%;float:left;"><fieldset><legend>Series</legend>
+<div><input type="checkbox" name="temp" value="6temp">Temperature</div>
+<div><input type="checkbox" name="humi" value="humi">Humidity</div>
+</fieldset></div>
+<div style="width:33%;float:left;"><fieldset><legend>Sensor</legend>
+<div><input type="checkbox" name="s1" value="s1">Sensor 1</div>
+<div><input type="checkbox" name="s2" value="s2">Sensor 2</div>
+</fieldset>
+</div>
+<div style="width:33%;float:left;"><fieldset><legend>Legend</legend>
+	<div id="graphLegend"></div>
+</fieldset>
+</div>
+</div>
+</form>
+
+<script type="text/javascript">
+  g = new Dygraph(
+    document.getElementById("graphdiv"),
+    "temperatures-csv.php", // path to CSV file
+    { // options
+      //  highlightSeriesOpts: {
+    //      strokeWidth: 3,
+  //        strokeBorderWidth: 1,
+//          highlightCircleSize: 5,
+//        },
+//          valueRange: [20, 100],
+//          valueRange: [55, 80],
+//          rollPeriod: 6, // 1,3,6,12
+//          showRoller: true,
+	  //customBars: true,
+          ylabel: 'Temperature (F)/Humidity %',
+          legend: 'always',
+          labelsDivStyles: { 'textAlign': 'right' },
+          connectSeparatedPoints: true,
+	labelsDiv: "graphLegend"
+    }
+  );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+For switch code.
+
+Two switches:
+-Basic switch, on/off with manual override switch 
+-Switch with consumption watt amp voltage
